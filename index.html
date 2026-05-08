@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasquale Castronuovo — Service & CX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#191d1b;
+  --bg2:#1f2421;
+  --bg3:#252b27;
+  --surface:rgba(255,255,255,.045);
+  --surface2:rgba(255,255,255,.075);
+  --green:#4dff78;
+  --green-soft:rgba(77,255,120,.10);
+  --green-mid:rgba(77,255,120,.18);
+  --white:#eef2ef;
+  --text:#c8d0ca;
+  --muted:#7f8f86;
+  --dim:#4d5852;
+  --rule:rgba(255,255,255,.09);
+  --rule-g:rgba(77,255,120,.22);
+  --font:'IBM Plex Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font);font-size:15px;line-height:1.65;overflow-x:hidden}
+a,button{font:inherit}
+a{color:inherit}
+img{max-width:100%}
+#bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--green),rgba(77,255,120,.3));z-index:999;width:0}
+
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(circle at 78% 10%,rgba(77,255,120,.16),transparent 32%),
+  radial-gradient(circle at 12% 38%,rgba(77,255,120,.055),transparent 34%),
+  linear-gradient(180deg,#191d1b 0%,#171a18 45%,#1d221f 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(180deg,rgba(0,0,0,.35),transparent 70%);pointer-events:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1200;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;transition:padding .35s,background .35s,border .35s}
+nav.s{padding:18px 56px;background:rgba(25,29,27,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule)}
+.n-logo{font-size:15px;font-weight:650;color:var(--white);text-decoration:none;letter-spacing:-.02em}
+.n-logo span{color:var(--green)}
+.n-links{display:flex;gap:30px;list-style:none}
+.n-links a{color:var(--muted);font-size:12px;font-weight:650;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:color .25s}
+.n-links a:hover,.n-links a.on{color:var(--white)}
+.n-links a.on::after{content:'';display:block;height:1px;background:var(--green);margin-top:5px}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 56px}
+.r{opacity:0;transform:translateY(18px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.r.v{opacity:1;transform:none}.r.d1{transition-delay:.08s}.r.d2{transition-delay:.16s}.r.d3{transition-delay:.24s}
+.sec-title{font-size:clamp(40px,5.1vw,70px);font-weight:650;letter-spacing:-.028em;line-height:.98;color:var(--white)}
+.sec-title .accent{color:var(--green)}
+.lead{font-size:18px;color:var(--text);line-height:1.75}
+strong{color:var(--white);font-weight:650}
+.kicker{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--green);display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.kicker::before{content:'';width:28px;height:1px;background:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border:1px solid var(--rule-g);border-radius:999px;color:var(--white);text-decoration:none;font-size:14px;font-weight:700;background:rgba(77,255,120,.055);transition:background .25s,border-color .25s,transform .25s}
+.btn:hover{background:var(--green-soft);border-color:var(--green);transform:translateY(-2px)}
+.btn.primary{background:var(--green);border-color:var(--green);color:#101411}
+.btn.primary:hover{background:#7cff99}
+
+/* HERO */
+#hero{min-height:94vh;display:flex;align-items:flex-end;padding:128px 56px 88px;position:relative;border-bottom:1px solid var(--rule);overflow:hidden}
+#hero::before{content:'';position:absolute;inset:90px 56px 70px auto;width:min(42vw,560px);border-radius:36px;background:
+  linear-gradient(135deg,rgba(77,255,120,.16),rgba(255,255,255,.035) 42%,rgba(77,255,120,.055)),
+  radial-gradient(circle at 30% 24%,rgba(255,255,255,.08),transparent 30%);border:1px solid var(--rule-g);filter:blur(.1px);opacity:.85;transform:skewY(-4deg);pointer-events:none}
+#hero::after{content:'';position:absolute;right:8%;bottom:18%;width:220px;height:220px;border-radius:999px;background:rgba(77,255,120,.12);filter:blur(70px);pointer-events:none}
+.hero-inner{position:relative;width:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.75fr);gap:76px;align-items:end}
+.h-kicker{font-size:13px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:26px}
+h1{font-size:clamp(58px,8.6vw,118px);font-weight:650;line-height:.94;letter-spacing:-.032em;max-width:880px;opacity:0;animation:fup .8s .2s var(--ease) forwards}
+h1 .soft{color:var(--text)}
+.h-sub{opacity:0;animation:fup .8s .45s var(--ease) forwards;background:rgba(25,29,27,.55);border:1px solid var(--rule);border-radius:28px;padding:28px;backdrop-filter:blur(16px)}
+.h-desc{font-size:19px;color:var(--text);line-height:1.7;margin-bottom:26px}
+.h-meta{display:grid;grid-template-columns:1fr;gap:16px;padding-top:24px;border-top:1px solid var(--rule)}
+.h-meta small{display:block;font-size:11px;font-weight:650;letter-spacing:.11em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.h-meta span{font-size:14px;color:var(--text)}
+.h-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+@keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* FOCUS */
+.focus-strip{border-bottom:1px solid var(--rule);background:rgba(255,255,255,.025)}
+.focus-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1180px;margin:0 auto;padding:0 56px}
+.focus-item{padding:30px 26px;border-right:1px solid var(--rule)}
+.focus-item:first-child{border-left:1px solid var(--rule)}
+.focus-item span{font-size:12px;font-weight:650;letter-spacing:.09em;text-transform:uppercase;color:var(--green)}
+.focus-item p{font-size:14px;color:var(--text);margin-top:8px;line-height:1.55}
+
+/* METODO */
+#metodo{padding:116px 0;border-bottom:1px solid var(--rule)}
+.metodo-top{display:flex;justify-content:space-between;gap:60px;margin-bottom:68px}.metodo-sub{max-width:390px;margin-top:8px}
+.m-row{display:grid;grid-template-columns:210px 1fr;border-top:1px solid var(--rule)}
+.m-label{padding:32px 36px 32px 0;font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.m-body{padding:28px 0 28px 36px;border-left:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:8px 15px;border:1px solid var(--rule);border-radius:999px;font-size:13px;color:var(--white);background:rgba(255,255,255,.035);transition:all .25s}.tag:hover{border-color:var(--rule-g);background:var(--green-soft)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--rule);background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.02));margin-top:42px;border-radius:24px;overflow:hidden}
+.stat{padding:34px 30px;border-right:1px solid var(--rule)}.stat:last-child{border-right:none}.s-n{font-size:44px;font-weight:650;color:var(--green);line-height:1;letter-spacing:-.032em}.s-n sup{font-size:20px}.s-d{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45}
+
+/* PROJECT INDEX */
+#progetti{padding:116px 0;border-bottom:1px solid var(--rule)}
+.projects-head{display:flex;justify-content:space-between;gap:56px;align-items:flex-end;margin-bottom:54px}.projects-head .lead{max-width:420px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project-card{position:relative;min-height:420px;padding:28px;border:1px solid var(--rule);border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));text-decoration:none;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .35s,background .35s}
+.project-card::before{content:'';position:absolute;inset:auto -20% -30% 12%;height:240px;background:radial-gradient(circle,rgba(77,255,120,.16),transparent 64%);filter:blur(8px);transition:opacity .35s}.project-card:hover{transform:translateY(-8px);border-color:var(--rule-g);background:linear-gradient(145deg,rgba(77,255,120,.09),rgba(255,255,255,.035))}.project-card:hover::before{opacity:1}
+.pc-num{font-size:12px;font-weight:650;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:34px}.pc-sector{font-size:13px;font-weight:650;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}.pc-title{font-size:30px;font-weight:650;letter-spacing:-.032em;line-height:1.05;margin-bottom:16px}.pc-text{color:var(--text);font-size:14px;line-height:1.65}.pc-foot{margin-top:auto;padding-top:36px;display:flex;justify-content:space-between;align-items:center;color:var(--green);font-size:13px;font-weight:650}.pc-arrow{width:36px;height:36px;border:1px solid var(--rule-g);border-radius:999px;display:grid;place-items:center;background:var(--green-soft)}
+
+/* PROJECT DETAIL PAGES */
+.project-page{padding:112px 0;border-bottom:1px solid var(--rule);scroll-margin-top:110px}
+.project-hero{min-height:72vh;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:56px;align-items:end;padding-bottom:58px;border-bottom:1px solid var(--rule)}
+.back-link{display:inline-flex;margin-bottom:28px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:650;letter-spacing:.07em;text-transform:uppercase}.back-link:hover{color:var(--green)}
+.project-kicker{font-size:13px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:20px}.project-title{font-size:clamp(48px,6.7vw,88px);font-weight:650;letter-spacing:-.028em;line-height:.96;max-width:850px}.project-summary{border:1px solid var(--rule);border-radius:28px;padding:28px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(77,255,120,.045));backdrop-filter:blur(14px)}.project-summary p{font-size:17px;color:var(--text);line-height:1.75}.summary-meta{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--rule)}.summary-meta small{display:block;color:var(--green);font-size:11px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}.summary-meta span{font-size:14px;color:var(--text)}
+.case-layout{display:grid;grid-template-columns:320px 1fr;gap:64px;margin-top:58px}.case-aside{position:sticky;top:92px;align-self:start}.case-box{border:1px solid var(--rule);border-radius:24px;padding:22px;background:rgba(255,255,255,.035);margin-bottom:16px}.case-box h4{font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}.case-box p,.case-box li{font-size:14px;color:var(--text);line-height:1.65}.case-box ul{list-style:none;display:grid;gap:8px}.case-box li::before{content:'•';color:var(--green);margin-right:8px}.case-content{display:grid;gap:34px}.case-section{border-top:1px solid var(--rule);padding-top:30px}.case-section h3{font-size:30px;font-weight:650;letter-spacing:-.032em;margin-bottom:14px}.case-section p{color:var(--text);font-size:16px;line-height:1.8;max-width:780px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{padding:7px 13px;border:1px solid var(--rule);border-radius:999px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.035)}.outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.outcome{padding:18px;border:1px solid var(--rule-g);border-radius:18px;background:var(--green-soft);color:var(--white);font-size:14px;line-height:1.55}.outcome::before{content:'→';color:var(--green);margin-right:8px}.gallery{display:grid;gap:22px;margin-top:24px}.img-label{font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}.img-slot{width:100%;border:1px solid var(--rule);border-radius:24px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(77,255,120,.035));transition:border-color .25s,transform .25s}.img-slot:hover{border-color:var(--rule-g);transform:translateY(-2px)}.img-slot.r169{aspect-ratio:16/9}.img-slot.r219{aspect-ratio:21/9}.img-slot.r1610{aspect-ratio:16/10}.img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.img-slot img[src=""],.img-slot img:not([src]){display:none}.img-ph{text-align:center;padding:32px;color:var(--muted)}.img-ph span{display:block;font-size:13px;color:var(--text);font-weight:700}.img-ph small{display:block;margin-top:6px;font-size:12px;color:var(--dim)}.img-slot:has(img[src]:not([src=""])) .img-ph{display:none}
+.next-projects{display:flex;gap:12px;flex-wrap:wrap;margin-top:42px;padding-top:32px;border-top:1px solid var(--rule)}
+
+/* PROJECT STORYLINE */
+.story-intro{display:block;margin-top:44px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+.story-intro .lead{max-width:920px;margin-bottom:0}
+.story{margin-top:38px;display:grid;gap:24px;position:relative}
+.story::before{display:none}
+.story-step{scroll-margin-top:120px;position:relative;display:grid;grid-template-columns:72px minmax(0,.95fr) minmax(340px,1.05fr);gap:26px;align-items:start;padding:30px;border:1px solid var(--rule);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));overflow:hidden}
+.story-step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),transparent 45%);opacity:.65;pointer-events:none}
+.story-step::after{content:'';position:absolute;right:-8%;bottom:-40%;width:320px;height:220px;background:radial-gradient(circle,rgba(77,255,120,.08),transparent 68%);pointer-events:none}
+.story-num{position:relative;z-index:1;width:46px;height:46px;border:1px solid var(--rule-g);border-radius:999px;display:grid;place-items:center;background:rgba(25,29,27,.9);color:var(--green);font-size:13px;font-weight:650;letter-spacing:.08em}
+.story-copy{position:relative;z-index:1}.story-label{font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:10px}.story-copy h3{font-size:30px;font-weight:650;letter-spacing:-.028em;line-height:1.1;margin-bottom:14px}.story-copy p{color:var(--text);font-size:16px;line-height:1.78;max-width:620px}.story-copy .chips{margin-top:18px}
+.story-media{position:relative;z-index:1}.story-media .img-slot{border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(77,255,120,.045))}
+.final-results{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}.result-card{border:1px solid var(--rule-g);border-radius:22px;padding:20px;background:var(--green-soft);min-height:132px}.result-card span{display:block;color:var(--green);font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}.result-card p{color:var(--white);font-size:14px;line-height:1.55}
+@media(max-width:960px){.story-intro{margin-top:36px}.story-step{grid-template-columns:64px 1fr;gap:22px}.story-media{grid-column:2}.final-results{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.story-step{grid-template-columns:1fr}.story-media{grid-column:auto}.final-results{grid-template-columns:1fr}}
+
+/* CLIENTI / COMPETENZE / SPEECH */
+#clienti,#competenze,#speech{padding:116px 0;border-bottom:1px solid var(--rule)}.clienti-top{margin-bottom:68px}.c-cols{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}.c-col{padding:44px 0}.c-col:first-child{padding-right:60px;border-right:1px solid var(--rule)}.c-col:last-child{padding-left:60px}.c-col-h{font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:24px}.c-item{padding:13px 0;border-bottom:1px solid var(--rule);font-size:16px;color:var(--text);display:flex;justify-content:space-between}.c-item::after{content:'';width:5px;height:5px;background:var(--dim);border-radius:50%;margin-top:11px}.c-item:hover{color:var(--white)}.c-item:hover::after{background:var(--green)}.c-item.dim{color:var(--dim)}.c-item.dim::after{display:none}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);border-radius:26px;overflow:hidden;margin-top:68px;background:rgba(255,255,255,.035)}.comp-item{padding:36px 30px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative}.comp-item:nth-child(4n){border-right:none}.comp-item:nth-last-child(-n+4){border-bottom:none}.comp-type{font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}.comp-name{font-size:21px;font-weight:650;letter-spacing:-.032em;line-height:1.2}
+.sp-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);margin-top:68px}.sp-col{padding:44px 0}.sp-col:first-child{padding-right:60px;border-right:1px solid var(--rule)}.sp-col:last-child{padding-left:60px}.sp-col-h{font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;color:var(--muted)}.sp-col-h.future{color:var(--green)}.ev{padding:32px;background:rgba(255,255,255,.045);border:1px solid var(--rule);border-radius:24px}.ev.fev{border-color:var(--rule-g);background:var(--green-soft)}.ev-title{font-size:24px;font-weight:650;letter-spacing:-.032em;line-height:1.2;margin-bottom:10px}.ev-org{font-size:12px;font-weight:650;color:var(--green);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px}.ev-desc{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:20px}.ev-meta{display:flex;flex-wrap:wrap;gap:8px}.ev-tag,.ev-badge{padding:6px 13px;border:1px solid var(--rule);border-radius:999px;font-size:12px;color:var(--muted)}.ev-badge,.ev-tag.h{border-color:var(--rule-g);color:var(--green);background:var(--green-soft);display:inline-flex;margin-bottom:18px}
+footer{padding:80px 0 40px}.foot-inner{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:46px;border-bottom:1px solid var(--rule)}.foot-name{font-size:48px;font-weight:650;letter-spacing:-.032em;line-height:.98}.foot-name span{color:var(--green)}.foot-role{font-size:14px;color:var(--muted);margin-top:12px}.foot-copy{display:flex;justify-content:space-between;padding-top:26px;font-size:12px;color:var(--dim)}
+::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--dim);border-radius:999px}
+
+@media(max-width:960px){nav,.wrap,#hero,.foot-inner,.foot-copy{padding-left:28px;padding-right:28px}nav.s{padding-left:28px;padding-right:28px}.n-links{display:none}#hero{min-height:auto;padding-top:136px}#hero::before{inset:auto 28px 42px 28px;width:auto;height:360px}.hero-inner,.project-hero,.case-layout{grid-template-columns:1fr;gap:42px}h1{font-size:52px}.focus-grid,.project-grid{grid-template-columns:1fr 1fr;padding:0 28px}.metodo-top,.projects-head{flex-direction:column;align-items:flex-start}.m-row{grid-template-columns:1fr}.m-label{padding:28px 0 8px}.m-body{padding:8px 0 28px;border-left:none}.stats,.comp-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2n){border-right:none}.project-card{min-height:320px}.case-aside{position:relative;top:auto}.c-cols,.sp-grid{grid-template-columns:1fr}.c-col:first-child,.sp-col:first-child{border-right:none;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:44px}.c-col:last-child,.sp-col:last-child{padding-left:0;padding-top:44px}.comp-item:nth-child(2n){border-right:none}.comp-item:nth-child(4n){border-right:1px solid var(--rule)}.outcomes{grid-template-columns:1fr}.foot-inner{flex-direction:column;gap:32px;align-items:flex-start}}
+@media(max-width:620px){.focus-grid,.project-grid,.stats,.comp-grid{grid-template-columns:1fr}.focus-item{border-right:none;border-bottom:1px solid var(--rule)}.stat{border-right:none;border-bottom:1px solid var(--rule)}.comp-item,.comp-item:nth-child(4n){border-right:none}.foot-copy{flex-direction:column;gap:10px}.project-title{font-size:44px}.summary-meta{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav id="nav">
+  <a href="#hero" class="n-logo">Pasquale <span>Castronuovo</span></a>
+  <ul class="n-links">
+    <li><a href="#metodo">Metodo</a></li>
+    <li><a href="#progetti">Progetti</a></li>
+    <li><a href="#clienti">Clienti</a></li>
+    <li><a href="#competenze">Competenze</a></li>
+    <li><a href="#speech">Speech</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="h-kicker">Portfolio 2022 / 2026</div>
+      <h1>Service &amp; Customer Experience Design</h1>
+    </div>
+    <div class="h-sub">
+      <p class="h-desc">Progetto servizi <strong>end-to-end</strong> che connettono <strong>bisogni delle persone</strong>, processi operativi e obiettivi di business. Con un approccio <strong>concreto, collaborativo</strong> e orientato all'implementazione.</p>
+      <div class="h-meta">
+        <div><small>Focus</small><span>Service Design, Customer Experience, CRM, workflow AI-enabled</span></div>
+        <div><small>Ruolo</small><span>Consulenza, formazione, facilitazione e delivery design</span></div>
+      </div>
+      <div class="h-actions"><a class="btn primary" href="#progetti">Esplora i progetti</a><a class="btn" href="#metodo">Approccio</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="focus-strip" aria-label="Aree di lavoro">
+  <div class="focus-grid">
+    <div class="focus-item"><span>01</span><p>Ricerca e comprensione di <strong>persone, contesti e vincoli</strong>.</p></div>
+    <div class="focus-item"><span>02</span><p>Co-design di <strong>processi, touchpoint</strong> e modelli operativi.</p></div>
+    <div class="focus-item"><span>03</span><p>Blueprint, flow, requisiti, scenari e <strong>backlog implementativi</strong>.</p></div>
+    <div class="focus-item"><span>04</span><p>Adozione, <strong>misurazione</strong> e miglioramento continuo.</p></div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="metodo-top r"><h2 class="sec-title">Metodo,<br>settori<br><span class="accent">e outcome</span></h2><p class="lead metodo-sub r d1">Una pratica a metà tra <strong>design, operations</strong> e trasformazione digitale: abbastanza creativa da aprire possibilità, abbastanza concreta da <strong>arrivare a terra</strong>.</p></div>
+    <div class="r d2">
+      <div class="m-row"><div class="m-label">Metodo</div><div class="m-body"><span class="tag">Service Design</span><span class="tag">Process Design</span><span class="tag">Service Blueprint</span><span class="tag">Customer Experience</span><span class="tag">Journey Mapping</span><span class="tag">Stakeholder Alignment</span></div></div>
+      <div class="m-row"><div class="m-label">Settori</div><div class="m-body"><span class="tag">Financial</span><span class="tag">Telco</span><span class="tag">Utilities</span><span class="tag">Education</span><span class="tag">Mobility</span><span class="tag">Retail</span><span class="tag">Insurance</span><span class="tag">Healthcare</span></div></div>
+      <div class="m-row"><div class="m-label">Outcome</div><div class="m-body"><span class="tag">Operational efficiency</span><span class="tag">Customer satisfaction</span><span class="tag">Scalable services</span><span class="tag">Platform enablement</span><span class="tag">AI-enabled workflows</span></div></div>
+    </div>
+    <div class="stats r d3"><div class="stat"><div class="s-n" data-c="4">0</div><div class="s-d">Anni di attività</div></div><div class="stat"><div class="s-n">8<sup>+</sup></div><div class="s-d">Settori coperti</div></div><div class="stat"><div class="s-n" data-c="15">0</div><div class="s-d">+ Clienti consulenza</div></div><div class="stat"><div class="s-n">6<sup>+</sup></div><div class="s-d">Clienti formazione</div></div><div class="stat"><div class="s-n" data-c="3">0</div><div class="s-d">Progetti nel portfolio</div></div></div>
+  </div>
+</section>
+
+<section id="progetti">
+  <div class="wrap">
+    <div class="projects-head r"><div><div class="kicker">Case studies</div><h2 class="sec-title">Progetti<br><span class="accent">selezionati</span></h2></div><p class="lead">Una selezione di case study raccontati come <strong>storyline di progetto</strong>: contesto, processo, output, outcome e materiali visuali organizzati in modo progressivo.</p></div>
+    <div class="project-grid r d1">
+      <a class="project-card" href="#progetto-telco"><div class="pc-num">01 / Telco</div><div class="pc-sector">Operations transformation</div><div class="pc-title">Service Design Project</div><p class="pc-text">Ridisegno di <strong>processi operativi</strong> per CRM e Field Service, con blueprint, flow chart, scenari e user stories.</p><div class="pc-foot"><span>Apri progetto</span><span class="pc-arrow">→</span></div></a>
+      <a class="project-card" href="#progetto-toyota"><div class="pc-num">02 / Financial</div><div class="pc-sector">Customer Experience</div><div class="pc-title">Service Design & CX Project</div><p class="pc-text">Trasformazione <strong>end-to-end</strong> della Customer Experience su Zendesk, automazioni, survey, chatbot e agenti virtuali.</p><div class="pc-foot"><span>Apri progetto</span><span class="pc-arrow">→</span></div></a>
+      <a class="project-card" href="#progetto-rec"><div class="pc-num">03 / Utilities</div><div class="pc-sector">Process design</div><div class="pc-title">Process Design & CX Project</div><p class="pc-text">Scalabilità del <strong>Customer Service</strong>, integrazione sistemi e ridisegno dei processi di gestione utenze.</p><div class="pc-foot"><span>Apri progetto</span><span class="pc-arrow">→</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="project-page" id="progetto-telco">
+  <div class="wrap">
+    <div class="project-hero r">
+      <div>
+        <a class="back-link" href="#progetti">← Torna ai progetti</a>
+        <div class="project-kicker">01 — Telco</div>
+        <h2 class="project-title">Service Design Project</h2>
+      </div>
+      <aside class="project-summary">
+        <p>Un progetto di <strong>trasformazione operations</strong> per rendere leggibili i processi esistenti, ridisegnare i flussi futuri e tradurre il lavoro di design in <strong>requisiti utili all'implementazione IT</strong>.</p>
+        <div class="summary-meta"><div><small>Cliente</small><span>Telco Company</span></div><div><small>Ambito</small><span>CRM, Field Service, Operations</span></div></div>
+      </aside>
+    </div>
+
+    <div class="story-intro r d1">
+      <p class="lead">La storyline del progetto segue il passaggio da <strong>complessità operativa</strong> a modello implementabile: prima comprensione del sistema As-Is, poi definizione dei processi To-Be, infine traduzione in <strong>scenari e user stories</strong> per allineare business, operations e IT.</p>
+    </div>
+
+    <div class="story r d2">
+      <article class="story-step" id="telco-fase-1">
+        <div class="story-num">01</div>
+        <div class="story-copy"><div class="story-label">Fase 1</div><h3>Definire contesto e perimetro</h3><p>Il progetto parte da un'organizzazione con <strong>processi distribuiti</strong> tra team, sistemi e fornitori. La prima attività è stata delimitare il perimetro operativo e individuare i punti in cui <strong>CRM, Field Service e operations</strong> si influenzavano a vicenda.</p><div class="chips"><span class="chip">Operations mapping</span><span class="chip">Stakeholder alignment</span><span class="chip">Perimetro progetto</span></div></div>
+        <div class="story-media"><div class="img-label">Perimetro operativo</div><div class="img-slot r169"><img src="assets/telco-contesto-perimetro.jpg" alt="Perimetro operativo Telco"><div class="img-ph"><span>Contesto e perimetro</span><small>assets/telco-contesto-perimetro.jpg</small></div></div></div>
+      </article>
+      <article class="story-step" id="telco-fase-2">
+        <div class="story-num">02</div>
+        <div class="story-copy"><div class="story-label">Fase 2</div><h3>Leggere l'As-Is</h3><p>Attraverso <strong>affiancamento operatori, interviste e focus group</strong> sono stati ricostruiti flussi, ruoli, eccezioni e pain point. Il service blueprint ha reso visibili le frammentazioni tra <strong>frontstage, backstage, sistemi e responsabilità</strong>.</p><div class="chips"><span class="chip">Affiancamento operatori</span><span class="chip">Interviste & focus group</span><span class="chip">Service Blueprint</span></div></div>
+        <div class="story-media"><div class="img-label">Service Blueprint — As-Is</div><div class="img-slot r1610"><img src="assets/telco-blueprint-as-is.jpg" alt="Service Blueprint As-Is"><div class="img-ph"><span>Service Blueprint — As-Is</span><small>assets/telco-blueprint-as-is.jpg</small></div></div></div>
+      </article>
+      <article class="story-step" id="telco-fase-3">
+        <div class="story-num">03</div>
+        <div class="story-copy"><div class="story-label">Fase 3</div><h3>Disegnare i processi To-Be</h3><p>Con <strong>workshop di co-design</strong> e mappatura degli strumenti, i flussi sono stati ridisegnati per essere coerenti con le nuove piattaforme. Gli output principali sono stati <strong>Service Evolution Map</strong> e <strong>Flow Chart To-Be</strong>.</p><div class="chips"><span class="chip">Co-design workshop</span><span class="chip">Tool mapping</span><span class="chip">Flow Chart</span></div></div>
+        <div class="story-media"><div class="img-label">Flow Chart — Processi To-Be</div><div class="img-slot r219"><img src="assets/telco-flowchart-to-be.jpg" alt="Flow Chart To-Be"><div class="img-ph"><span>Flow Chart — Processi To-Be</span><small>assets/telco-flowchart-to-be.jpg</small></div></div></div>
+      </article>
+      <article class="story-step" id="telco-fase-4">
+        <div class="story-num">04</div>
+        <div class="story-copy"><div class="story-label">Fase 4</div><h3>Tradurre il design per l'IT</h3><p>Nella fase successiva, il lavoro è stato trasformato in <strong>scenari operativi</strong> e <strong>user stories</strong> per facilitare il dialogo tra Business, IT e fornitore tecnico, rendendo i requisiti più concreti e verificabili.</p><div class="chips"><span class="chip">Scenari operativi</span><span class="chip">User Stories</span><span class="chip">IT-Business alignment</span></div></div>
+        <div class="story-media"><div class="img-label">User Stories & Scenari</div><div class="img-slot r169"><img src="assets/telco-user-stories-scenari.jpg" alt="User Stories e scenari"><div class="img-ph"><span>User Stories — Fase 2</span><small>assets/telco-user-stories-scenari.jpg</small></div></div></div>
+      </article>
+    </div>
+
+    <div class="final-results r d3"><div class="result-card"><span>Outcome 01</span><p>Riduzione della frammentazione operativa.</p></div><div class="result-card"><span>Outcome 02</span><p>Processi To-Be coerenti con gli strumenti digitali.</p></div><div class="result-card"><span>Outcome 03</span><p>Requisiti funzionali per CRM e Field Service.</p></div><div class="result-card"><span>Outcome 04</span><p>User stories per l'implementazione IT.</p></div></div>
+    <div class="next-projects"><a class="btn" href="#progetto-toyota">Prossimo: Financial →</a><a class="btn" href="#progetti">Tutti i progetti</a></div>
+  </div>
+</section>
+
+<section class="project-page" id="progetto-toyota">
+  <div class="wrap">
+    <div class="project-hero r">
+      <div><a class="back-link" href="#progetti">← Torna ai progetti</a><div class="project-kicker">02 — Financial</div><h2 class="project-title">Service Design & CX Project</h2></div>
+      <aside class="project-summary"><p>Un percorso di trasformazione della <strong>Customer Experience su Zendesk</strong>: dalla lettura dei touchpoint alla configurazione di processi, automazioni, chatbot, agenti virtuali e dashboard.</p><div class="summary-meta"><div><small>Cliente</small><span>Toyota Financial Services Italia</span></div><div><small>Ambito</small><span>CX, Zendesk, AI, Customer Care</span></div></div></aside>
+    </div>
+
+    <div class="story-intro r d1">
+      <p class="lead">La storyline racconta l'evoluzione da <strong>esperienza frammentata</strong> a sistema omnicanale misurabile: prima si leggono journey e touchpoint, poi si ridisegnano flussi e automazioni, infine si configurano <strong>componenti AI</strong> e dashboard di monitoraggio.</p>
+    </div>
+
+    <div class="story r d2">
+      <article class="story-step" id="toyota-fase-1"><div class="story-num">01</div><div class="story-copy"><div class="story-label">Fase 1</div><h3>Mappare journey e touchpoint</h3><p>Analisi dei flussi esistenti e mappatura dei <strong>canali di contatto</strong> — email, chat, webform e telefono — per individuare <strong>pain point, ridondanze</strong> e opportunità di miglioramento.</p><div class="chips"><span class="chip">Analisi flussi</span><span class="chip">Touchpoint mapping</span><span class="chip">Pain point analysis</span></div></div><div class="story-media"><div class="img-label">Customer Journey Map — Phone</div><div class="img-slot r219"><img src="assets/toyota-cjm-phone.jpg" alt="Customer Journey Map canale phone"><div class="img-ph"><span>Customer Journey Map</span><small>assets/toyota-cjm-phone.jpg</small></div></div></div></article>
+      <article class="story-step" id="toyota-fase-2"><div class="story-num">02</div><div class="story-copy"><div class="story-label">Fase 2</div><h3>Ridisegnare flussi e automazioni</h3><p>I processi sono stati ridisegnati introducendo <strong>logiche di routing, escalation e survey</strong> collegate ai ticket Zendesk, con l'obiettivo di rendere la gestione più coerente tra canali e team.</p><div class="chips"><span class="chip">Process redesign</span><span class="chip">Automazioni</span><span class="chip">Routing</span><span class="chip">Survey</span></div></div><div class="story-media"><div class="img-label">Redesign processi & automazioni</div><div class="img-slot r1610"><img src="assets/toyota-process-redesign-zendesk.jpg" alt="Redesign processi Zendesk"><div class="img-ph"><span>Redesign processi</span><small>assets/toyota-process-redesign-zendesk.jpg</small></div></div></div></article>
+      <article class="story-step" id="toyota-fase-3"><div class="story-num">03</div><div class="story-copy"><div class="story-label">Fase 3</div><h3>Progettare chatbot e agenti virtuali</h3><p>Design e configurazione di <strong>chatbot e agenti virtuali</strong> a supporto del Customer Care, con definizione di flow conversazionali, percorsi decisionali e <strong>punti di handover</strong> verso gli operatori.</p><div class="chips"><span class="chip">Chatbot design</span><span class="chip">Virtual agents</span><span class="chip">Conversation flow</span><span class="chip">Zendesk AI</span></div></div><div class="story-media"><div class="img-label">Conversation Flow AI</div><div class="img-slot r169"><img src="assets/toyota-conversation-flow-ai.jpg" alt="Conversation flow AI"><div class="img-ph"><span>AI Chatbot — Conversation Flow</span><small>assets/toyota-conversation-flow-ai.jpg</small></div></div></div></article>
+      <article class="story-step" id="toyota-fase-4"><div class="story-num">04</div><div class="story-copy"><div class="story-label">Fase 4</div><h3>Misurare performance e adozione</h3><p>Dashboard di monitoraggio e supporto al <strong>change management</strong> hanno reso visibili andamento, backlog e soddisfazione, aiutando il team a leggere <strong>l'impatto delle nuove configurazioni</strong>.</p><div class="chips"><span class="chip">KPI Dashboard</span><span class="chip">Backlog tracking</span><span class="chip">Change management</span></div></div><div class="story-media"><div class="img-label">Performance Dashboard</div><div class="img-slot r169"><img src="assets/toyota-performance-dashboard.jpg" alt="Performance Dashboard"><div class="img-ph"><span>Performance Dashboard</span><small>assets/toyota-performance-dashboard.jpg</small></div></div></div></article>
+    </div>
+
+    <div class="final-results r d3"><div class="result-card"><span>Outcome 01</span><p>Customer satisfaction al 96.2%.</p></div><div class="result-card"><span>Outcome 02</span><p>Call me back satisfaction al 98.1%.</p></div><div class="result-card"><span>Outcome 03</span><p>Chatbot e agenti virtuali configurati su Zendesk.</p></div><div class="result-card"><span>Outcome 04</span><p>Processi omnicanale coerenti e scalabili.</p></div></div>
+    <div class="next-projects"><a class="btn" href="#progetto-rec">Prossimo: Utilities →</a><a class="btn" href="#progetti">Tutti i progetti</a></div>
+  </div>
+</section>
+
+<section class="project-page" id="progetto-rec">
+  <div class="wrap">
+    <div class="project-hero r">
+      <div><a class="back-link" href="#progetti">← Torna ai progetti</a><div class="project-kicker">03 — Utilities</div><h2 class="project-title">Process Design & CX Project</h2></div>
+      <aside class="project-summary"><p>Un progetto per sostenere la <strong>crescita di una società energetica</strong>, ridisegnando processi di Customer Service e integrazione tra gestionale utenze e piattaforma di ticketing.</p><div class="summary-meta"><div><small>Cliente</small><span>Rec Energy</span></div><div><small>Ambito</small><span>Customer Service, sistemi, utenze</span></div></div></aside>
+    </div>
+
+    <div class="story-intro r d1">
+      <p class="lead">La storyline è più compatta: comprensione dei flussi attuali, <strong>redesign operativo</strong>, integrazione dei sistemi e definizione di un modello più scalabile per gestire <strong>clienti, utenze e fatture</strong>.</p>
+    </div>
+
+    <div class="story r d2">
+      <article class="story-step" id="rec-fase-1"><div class="story-num">01</div><div class="story-copy"><div class="story-label">Fase 1</div><h3>Ridisegnare il modello operativo</h3><p>Ridisegno dei processi con <strong>service blueprint dettagliato</strong> per specialisti e sistemi automatizzati, definendo responsabilità, passaggi e <strong>logiche operative</strong>.</p><div class="chips"><span class="chip">Service Blueprint</span><span class="chip">To-Be design</span><span class="chip">Operational logic</span></div></div><div class="story-media"><div class="img-label">Service Blueprint — Redesign processi</div><div class="img-slot r219"><img src="assets/rec-energy-service-blueprint.jpg" alt="Service Blueprint Rec Energy"><div class="img-ph"><span>Service Blueprint</span><small>assets/rec-energy-service-blueprint.jpg</small></div></div></div></article>
+      <article class="story-step" id="rec-fase-2"><div class="story-num">02</div><div class="story-copy"><div class="story-label">Fase 2</div><h3>Integrare sistemi e interfaccia operativa</h3><p>Progettazione dell'<strong>integrazione tra gestionale utenze e piattaforma di ticketing</strong>, con specifiche per un'app dedicata alla gestione di clienti, utenze e fatture.</p><div class="chips"><span class="chip">System integration</span><span class="chip">App gestione utenze</span><span class="chip">Data flow design</span><span class="chip">CRM config</span></div></div><div class="story-media"><div class="img-label">App Gestione Utenze</div><div class="img-slot r1610"><img src="assets/rec-energy-app-gestione-utenze.jpg" alt="App gestione utenze"><div class="img-ph"><span>App Gestione Utenze</span><small>assets/rec-energy-app-gestione-utenze.jpg</small></div></div></div></article>
+    </div>
+
+    <div class="final-results r d3"><div class="result-card"><span>Outcome 01</span><p>Processi scalabili per la crescita aziendale.</p></div><div class="result-card"><span>Outcome 02</span><p>Integrazione sistemi gestionali e ticketing.</p></div><div class="result-card"><span>Outcome 03</span><p>Customer Service più efficiente e misurabile.</p></div><div class="result-card"><span>Outcome 04</span><p>Riduzione delle frizioni operative interne.</p></div></div>
+    <div class="next-projects"><a class="btn" href="#progetto-telco">Torna al primo progetto →</a><a class="btn" href="#progetti">Tutti i progetti</a></div>
+  </div>
+</section>
+
+<section id="clienti"><div class="wrap"><div class="clienti-top r"><h2 class="sec-title">Clienti &<br><span class="accent">collaborazioni</span></h2></div><div class="c-cols r d1"><div class="c-col"><div class="c-col-h">Formazione</div><div class="c-item">24ORE Business School</div><div class="c-item">ITS</div><div class="c-item">Formaterziario</div><div class="c-item">Simest – Gruppo CDP</div><div class="c-item">Linear</div><div class="c-item">Unipol</div><div class="c-item dim">e altri...</div></div><div class="c-col"><div class="c-col-h">Consulenza</div><div class="c-item">Toyota Financial Services</div><div class="c-item">Enel-X</div><div class="c-item">Rec Energy</div><div class="c-item">LUBE</div><div class="c-item">KINTO</div><div class="c-item">Coripet</div><div class="c-item">Croce Rossa Italiana</div><div class="c-item">Università Bocconi</div><div class="c-item">Università di Urbino</div><div class="c-item">Università di Macerata</div><div class="c-item">L'Erbolario</div><div class="c-item">N&TS Group</div><div class="c-item">Subito.it</div><div class="c-item dim">e altri...</div></div></div></div></section>
+
+<section id="competenze"><div class="wrap"><h2 class="sec-title r">Aree di<br><span class="accent">formazione</span></h2><div class="comp-grid r d1"><div class="comp-item"><div class="comp-type">Core</div><div class="comp-name">Service Design</div></div><div class="comp-item"><div class="comp-type">Core</div><div class="comp-name">Customer Experience</div></div><div class="comp-item"><div class="comp-type">Operations</div><div class="comp-name">Customer Service</div></div><div class="comp-item"><div class="comp-type">Analytics</div><div class="comp-name">Performance Management</div></div><div class="comp-item"><div class="comp-type">Operations</div><div class="comp-name">Knowledge Management</div></div><div class="comp-item"><div class="comp-type">Platforms</div><div class="comp-name">CRM</div></div><div class="comp-item"><div class="comp-type">Digital</div><div class="comp-name">Marketing Automation</div></div><div class="comp-item"><div class="comp-type">Innovazione</div><div class="comp-name">Intelligenza Artificiale</div></div></div></div></section>
+
+<section id="speech"><div class="wrap"><h2 class="sec-title r">Speech<br><span class="accent">&amp; eventi</span></h2><div class="sp-grid r d1"><div class="sp-col"><div class="sp-col-h past">Eventi passati</div><div class="ev"><div class="ev-title">Intelligenza Artificiale e Service Design</div><div class="ev-org">SDN Milan Chapter × BSD Design</div><div class="ev-desc">L'impatto reale dell'<strong>AI su clienti e team</strong> — webinar con Antonio Barbatelli (Glue Labs/Pupau AI) ed Edoardo Abate (Zendesk).</div><div class="ev-meta"><span class="ev-tag">Webinar</span><span class="ev-tag">24 ottobre 2024</span><span class="ev-tag">Ore 12:00</span></div></div></div><div class="sp-col"><div class="sp-col-h future">Prossimo evento</div><div class="ev fev"><div class="ev-badge">4–5 Giugno 2026 · Milano</div><div class="ev-title">Come progettare Agentic AI attraverso User Research</div><div class="ev-org">URCA! — User Research Conference & Activities 2026</div><div class="ev-desc">Workshop pratico su come applicare la <strong>User Research</strong> alla progettazione di <strong>workflow Agentic AI</strong>. Monte Rosa 91, Milano.</div><div class="ev-meta"><span class="ev-tag h">Workshop</span><span class="ev-tag h">Unguess</span></div></div></div></div></div></section>
+
+<footer><div class="wrap"><div class="foot-inner r"><div><div class="foot-name">Pasquale<br><span>Castronuovo</span></div><div class="foot-role">Service & Customer Experience Designer</div></div><div><div style="font-size:12px;color:var(--dim);letter-spacing:.08em">Portfolio 2022 — 2026</div></div></div><div class="foot-copy"><span>© 2026 Pasquale Castronuovo</span><span>Service & Customer Experience Designer</span></div></div></footer>
+
+<script>
+const bar=document.getElementById('bar');
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+'%'});
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>40));
+const ro=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+const secs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.n-links a');const so=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)nls.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id||e.target.classList.contains('project-page')&&l.getAttribute('href')==='#progetti'))}),{threshold:.18});secs.forEach(s=>so.observe(s));
+document.querySelectorAll('[data-c]').forEach(el=>{const co=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)return;const t=+el.getAttribute('data-c');let c=0;const iv=setInterval(()=>{c=Math.min(c+t/35,t);el.textContent=Math.round(c);if(c>=t)clearInterval(iv)},25);co.unobserve(el)},{threshold:.5});co.observe(el)});
+</script>
+</body>
+</html>
